@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FadeTacToe</title>
+  <link rel="stylesheet" href="/static/style.css" /> 
+</head>
+<body>
+  <header id="navbar">
+    <div class="logo">FadeTacToe</div>
+    <nav>
+      <button id="mode-toggle" onclick="toggleMode()">🌙 Dark Mode</button>
+      <button onclick="showRules()">📄 Rules</button>
+      <button onclick="showAbout()">ℹ️ About</button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Game Section -->
+    <div id="game-section">
+        <div id="status">Loading...</div>
+        <div id="board"></div>
+        <button onclick="resetGame()">🔁 Restart Game</button>
+    </div>
+
+    <!-- Rules Section -->
+    <div id="rules-section" class="info-page" style="display: none;">
+    <h2>📄 Game Rules</h2>
+    <p>1. Each player places 3 pieces in turn.<br>
+        2. Once each has 3, new moves replace the oldest (Fade-and-Replace phase).<br>
+        3. First to align 3 wins!</p>
+    <button onclick="showGame()">🔙 Back to Game</button>
+    </div>
+
+    <!-- About Section -->
+    <div id="about-section" class="info-page" style="display: none;">
+    <h2>ℹ️ About This Game</h2>
+    <p>This is a web-based AI-enhanced Tic-Tac-Toe variant with fading moves,<br>
+        built using HTML, CSS, JavaScript, and Python (Flask).</p>
+    <p>Made with ❤️ by [Your Name]</p>
+    <button onclick="showGame()">🔙 Back to Game</button>
+    </div>
+  </main>
+
+  <script src="/static/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+
+</body>
+</html>
