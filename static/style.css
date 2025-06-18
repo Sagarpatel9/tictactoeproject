@@ -1,10 +1,10 @@
-/* === BASE LAYOUT === */
+chat instead, /* === BASE LAYOUT === */ 
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #e2ebf0; 
+  background: #e2ebf0;
   color: #2c3e50;
 }
 
@@ -13,7 +13,7 @@ header#navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #dce7f4; /* Light blue */
+  background: #dce7f4;
   padding: 20px 40px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   font-weight: bold;
@@ -35,29 +35,30 @@ nav button {
   margin-top: 40px;
 }
 
-/* === STATUS === */
+/* === STATUS MESSAGE === */
 #status {
   font-size: 1.3rem;
   margin-bottom: 20px;
   font-weight: bold;
 }
 
-/* === GAME BOARD === */
+/* === GAME BOARD LAYOUT === */
 #board {
   display: grid;
-  grid-template-columns: repeat(3, 140px); /* ✅ Bigger cells */
+  grid-template-columns: repeat(3, 140px);
   grid-template-rows: repeat(3, 140px);
   background: #e2ebf0;
   border-radius: 12px;
   margin-bottom: 30px;
   width: max-content;
 }
+
 /* === CELLS === */
 .cell {
   background: #e2ebf0;
   width: 140px;
   height: 140px;
-  font-size: 4rem; /* ✅ Bigger X/O */
+  font-size: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +68,7 @@ nav button {
   transition: all 0.2s ease;
 }
 
-/* Borders to form # */
+/* ✅ Create board grid lines */
 .cell:not(:nth-child(3n)) {
   border-right: 6px solid #2c3e50;
 }
@@ -75,21 +76,20 @@ nav button {
   border-bottom: 6px solid #2c3e50;
 }
 
-/* Hover */
+/* Hover effect */
 .cell:hover {
-  transform: scale(1.03); /* Slight zoom */
+  transform: scale(1.03);
 }
 
-/* X and O colors */
+/* Symbol coloring */
 .cell.x {
   color: #2980b9;
 }
-
 .cell.o {
   color: #e74c3c;
 }
 
-/* Winner animation */
+/* ✅ Winning cell glow animation */
 .winner-cell {
   background: #ffeaa7 !important;
   animation: glow 1s infinite alternate;
@@ -97,7 +97,7 @@ nav button {
 
 @keyframes glow {
   from { box-shadow: 0 0 10px #f1c40f; }
-  to { box-shadow: 0 0 20px #f39c12; }
+  to   { box-shadow: 0 0 20px #f39c12; }
 }
 
 /* === BUTTONS === */
@@ -111,13 +111,12 @@ button {
   cursor: pointer;
   transition: 0.3s ease;
 }
-
 button:hover {
   background: #1c2833;
   transform: translateY(-1px);
 }
 
-/* === INFO PAGES === */
+/* === INFO SECTIONS === */
 .info-page {
   flex-direction: column;
   align-items: center;
@@ -128,21 +127,18 @@ button:hover {
   margin-top: 40px;
   animation: fadeIn 0.4s ease;
 }
-
 .info-page h2 {
   font-size: 1.8rem;
   margin-bottom: 16px;
 }
-
 .info-page p {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 20px;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* === DARK MODE === */
@@ -150,66 +146,49 @@ body.dark-mode {
   background: radial-gradient(circle, #0a0a0a, #000000);
   color: #ffffff;
 }
-
 body.dark-mode header#navbar {
   background: #0c0c0c;
   color: #0ff;
   box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
 }
-
-/* 🧠 Better, cleaner status glow */
 body.dark-mode #status {
   color: #00fff7;
   text-shadow: 0 0 2px #00fff7, 0 0 4px #00fff7;
 }
-
-/* === CELL STYLING === */
 body.dark-mode .cell {
   background: #0a0a0a;
   border-color: #00ffe0;
   color: #fff;
-  text-shadow: none; /* reset any lingering blur */
+  text-shadow: none;
 }
-
-/* 🎯 Refined X: light cyan, crisp */
 body.dark-mode .cell.x {
   color: #00d2ff;
   text-shadow: 0 0 3px #00d2ff, 0 0 6px #00eaff;
 }
-
-/* 🎯 Refined O: soft neon pink */
 body.dark-mode .cell.o {
   color: #ff4f81;
   text-shadow: 0 0 3px #ff4f81, 0 0 6px #ff7aa5;
 }
-
-/* 🎉 Winner cell glow improved */
 body.dark-mode .winner-cell {
   background: #16003b !important;
   box-shadow: 0 0 10px #8e44ad, 0 0 15px #a29bfe;
   animation: glow 1.2s infinite alternate;
 }
-
-/* === BUTTONS === */
 body.dark-mode button {
   background: #000;
   color: #0ff;
   border: 2px solid #0ff;
   box-shadow: 0 0 6px #0ff;
 }
-
 body.dark-mode button:hover {
   background: #002b36;
   box-shadow: 0 0 10px #00e6ff;
 }
 
-
-
-
-
+/* === GAME SECTION SPACING === */
 #game-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* Optional spacing between status, board, and button */
+  gap: 20px;
 }
