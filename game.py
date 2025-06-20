@@ -22,16 +22,21 @@ class Game:
         self.mode = mode  # Save selected mode
 
     def get_state(self):
-        """
-        Return the current game state to the frontend.
-        """
+        # Find oldest piece for each player
+        oldest_cells = {}
+        for player in ["X", "O"]:
+            if self.move_history[player]:
+                r, c = self.move_history[player][0]
+                oldest_cells[player] = f"{r},{c}"
+
         return {
             "board": self.board,
             "current_player": self.current_player,
             "phase": self.phase,
             "winner": self.winner,
             "winning_cells": self.winning_cells,
-            "mode": self.mode
+            "mode": self.mode,
+            "oldest_cells": oldest_cells
         }
 
     def make_move(self, row, col):

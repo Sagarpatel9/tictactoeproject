@@ -41,28 +41,30 @@
     </div>
   </div>
 
-  <!-- Rules Section -->
-  <div id="rules-section" class="info-page" style="display: none; text-align: center;">
-  <h2 style="font-size: 2rem; margin-bottom: 20px;">🕹️ How to Play</h2>
-  <p style="font-size: 1.15rem; line-height: 1.6; max-width: 600px; margin: 0 auto 20px;">
-    Each player places <strong>3 pieces</strong>. After all 6 are placed, take turns <strong>fading</strong> your oldest piece and placing a new one.<br />
-    Align <strong>3 in a row</strong> to win! Choose to play against another Human or an AI opponent.
-  </p>
-  <p style="font-size: 1rem; color: #666; font-style: italic;">
-    Developed by <strong>Sagar & Bayu</strong>
-  </p>
-  <button onclick="showGame()">⬅️ Back to Game</button>
-</div>
+  
+  <!-- Rules/About -->
+  <div id="overlay" class="overlay hidden">
+    <div id="overlay-content">
+      <button onclick="closeOverlay()" class="close-btn">✖️</button>
 
+      <div id="rules-overlay" style="display: none;">
+        <h2>📜 Game Rules</h2>
+        <p>
+          1. Each player places 3 pieces in turn.<br>
+          2. Once each has 3, new moves replace the oldest (Fade-and-Replace phase).<br>
+          3. First to align 3 wins!
+        </p>
+      </div>
 
-  <!-- About Section -->
-  <div id="about-section" class="info-page" style="display: none;">
-    <h2>About</h2>
-    <p>
-      Built with  using HTML, CSS, JavaScript, Python (Flask) and a simple AI using Minimax.
-    </p>
-    <button onclick="showGame()">⬅️ Back to Game</button>
+      <div id="about-overlay" style="display: none;">
+        <h2>ℹ️ About This Game</h2>
+        <p>This is a web-based AI-enhanced Tic-Tac-Toe variant with fading moves,<br>
+        built using HTML, CSS, JavaScript, and Python (Flask).</p>
+        <p>Made with ❤️ by Sagarkumar Patel & Simegnew Bayu</p>
+      </div>
+    </div>
   </div>
+
 
   <script src="/static/confetti.min.js"></script>
   <script src="/static/app.js"></script>

@@ -1,4 +1,4 @@
-chat instead, /* === BASE LAYOUT === */ 
+/* === BASE LAYOUT === */ 
 html, body {
   height: 100%;
   margin: 0;
@@ -66,9 +66,10 @@ nav button {
   box-sizing: border-box;
   cursor: pointer;
   transition: all 0.2s ease;
+  position: relative;
 }
 
-/* ✅ Create board grid lines */
+/* Create board grid lines */
 .cell:not(:nth-child(3n)) {
   border-right: 6px solid #2c3e50;
 }
@@ -89,7 +90,21 @@ nav button {
   color: #e74c3c;
 }
 
-/* ✅ Winning cell glow animation */
+/* === Highlight Oldest Cell === */
+.oldest-cell {
+  background: #ccfaff !important; 
+  animation: glowOldest 1.2s infinite alternate;
+}
+
+@keyframes glowOldest {
+  from { box-shadow: 0 0 12px #00e0ff; }
+  to   { box-shadow: 0 0 24px #00ffff; }
+}
+
+
+
+
+/*  Winning cell glow animation */
 .winner-cell {
   background: #ffeaa7 !important;
   animation: glow 1s infinite alternate;
@@ -141,6 +156,58 @@ button:hover {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* === OVERLAY PANEL === */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 8, 15, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.overlay.hidden {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+#overlay-content {
+  background: #fff;
+  color: #000;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  text-align: center;
+  position: relative;
+}
+
+.dark-mode #overlay-content {
+  background: #111;
+  color: #0ff;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+
 /* === DARK MODE === */
 body.dark-mode {
   background: radial-gradient(circle, #0a0a0a, #000000);
@@ -184,6 +251,45 @@ body.dark-mode button:hover {
   background: #002b36;
   box-shadow: 0 0 10px #00e6ff;
 }
+
+/* Default light mode style */
+#mode-select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 2px solid #2c3e50;
+  background: #fff;
+  color: #2c3e50;
+}
+
+/* Dark mode style */
+body.dark-mode #mode-select {
+  background: #111;
+  color: #0ff;
+  border: 2px solid #0ff;
+  box-shadow: 0 0 6px #0ff;
+}
+
+/* Optional: style the options in dark mode */
+body.dark-mode #mode-select option {
+  background: #111;
+  color: #0ff;
+}
+
+body.dark-mode .oldest-cell::before {
+  border-color: #0ff;
+}
+
+body.dark-mode .oldest-cell {
+  background: #001b1f !important; 
+  animation: glowOldestDark 1.2s infinite alternate;
+}
+
+@keyframes glowOldestDark {
+  from { box-shadow: 0 0 16px #00ffff; }
+  to   { box-shadow: 0 0 32px #33ffff; }
+}
+
 
 /* === GAME SECTION SPACING === */
 #game-section {
