@@ -1,4 +1,4 @@
-#  FadeTacToe: A Dynamic Variant of a Classic Game
+#  FadeTacToe: A Strategic Variant of Tic-Tac-Toe
 
 Welcome to a unique twist on the classic Tic Tac Toe!  
 This project reimagines the traditional game by adding a strategic second phase where players must **fade out** old pieces to make room for new ones — eliminating the repetitive, draw-prone gameplay of the original.
